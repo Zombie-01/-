@@ -1,0 +1,15 @@
+.linearGradient {
+    width: 40%;
+    height: 100vh;
+    background: linear-gradient(255.6deg, #FDD3D5 18.8%, #F0C3FE 55.56%, rgba(129, 208, 223, 0.6) 103.85%);
+    @media (max-width: 767px) {
+        width: 0;
+    }
+}
+
+.main {
+    width: 60%;
+    @media (max-width: 767px) {
+        width: 100%;
+    }
+}

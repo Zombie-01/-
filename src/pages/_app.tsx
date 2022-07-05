@@ -1,15 +1,25 @@
-import '../styles/globals.css';
+
 import type { AppProps } from 'next/app';
-import  Header from '../components/header';
-import Footer from '../components/footer';
+import { Provider } from 'react-redux';
+import { UserStore } from '../context/userContext';
+import {store} from '../stores';
+import '../assets/css/tailwind.css'
+import '../styles/main.scss';
+
 
 export default function MyApp({ Component, pageProps }: AppProps):JSX.Element {
   return (
     <>
-    <Header/>
-    <Component {...pageProps} />
-    <Footer/>
+      <UserStore>
+        {/* <ProtectRoute> */}
+          <Provider store= { store }>
+                <Component {...pageProps} />
+          </Provider>
+        {/* </ProtectRoute> */}
+      </UserStore>
+        
     </>
+      
   )
 }
 

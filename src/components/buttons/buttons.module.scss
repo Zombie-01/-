@@ -1,0 +1,20 @@
+@media (max-width: 640px) {
+    #body {
+        display: none;
+    }
+    #relEl {
+        position: relative;
+    }
+    #abEl {
+        position: absolute;
+        width: 100px;
+    }
+}
+
+.miniSide {
+    display: none !important;
+}
+
+#profile {
+    padding: 4px;
+}

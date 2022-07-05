@@ -1,0 +1,44 @@
+.header {
+    background: linear-gradient(255.6deg, #FDD3D5 18.8%, #F0C3FE 55.56%, rgba(129, 208, 223, 0.6) 103.85%);
+    position: relative;
+    .sectionHeader {
+        gap: 24px;
+        position: absolute;
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 160px;
+        h1 {
+            text-align: center;
+            color: #121127;
+            line-height: 120%;
+        }
+        p {
+            text-align: center;
+            line-height: 180%;
+            color: rgba(18, 17, 39, 0.72);
+        }
+        #btns {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            gap: 16px;
+            line-height: 180%;
+            font-size: 16px;
+        }
+    }
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 200px 100vw;
+    border-color: transparent transparent #ffffff transparent;
+}

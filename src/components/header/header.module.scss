@@ -1,8 +1,31 @@
 .header {
-    z-index: 10;
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: rgba(18, 17, 39, 0.72);
+    ul {
+        left: calc(50% - 288px/2);
+        gap: 48px;
+        font-size: 16px;
+        line-height: 180%;
+        li {
+            font-weight: 400;
+        }
+    }
+    #btns {
+        gap: 16px !important;
+    }
+    .barAnimation {
+        animation-duration: 0.5s;
+        top: 64px;
+        animation-name: slidein;
+        opacity: 1;
+    }
+    @keyframes slidein {
+        from {
+            top: -100px;
+            opacity: 0;
+        }
+        to {
+            top: 64px;
+            opacity: 1;
+        }
+    }
 }
