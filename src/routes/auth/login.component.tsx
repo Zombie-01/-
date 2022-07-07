@@ -23,7 +23,7 @@ const Login = (): JSX.Element => {
     const login = async (event: any) => {
         event.preventDefault();
         userContext.loginUser( event.target.email.value, event.target.password.value);
-        dispatch(login());
+        // dispatch(login());
         if(userContext.state.token ){
             router.push("/users")
         } else {

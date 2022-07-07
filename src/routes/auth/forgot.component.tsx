@@ -23,7 +23,7 @@ const ForgotPassword = (): JSX.Element => {
 
     const forgetPassword = async (event: any) => {
         event.preventDefault();
-        userContext.forgetPassword(event.target.gmail.value)
+        userContext.forgetPassword(event.target.email.value)
 
 
     }

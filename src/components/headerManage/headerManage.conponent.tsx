@@ -1,10 +1,13 @@
 import { useEffect,useCallback, useState } from 'react';
 import { useRouter } from 'next/router';
 import { FaChevronLeft } from 'react-icons/fa';
+import IconItems from './items';
 
+import Profile from '../profile';
 import BudgeHeader from './budgetHeader';
 import AccHeader from './acc';
 import Reportheader from './reports';
+import UsersHeader from './users';
 
 
 const HeaderManage = ({ parentCallback }:any):JSX.Element => {
@@ -30,6 +33,10 @@ const HeaderManage = ({ parentCallback }:any):JSX.Element => {
             route: "/users/accounts",
             div: <AccHeader/>,
         },
+        {
+            route: "/users",
+            div: <UsersHeader/>,
+        },
     ];
    
     const findSlugMatchingCmp = () =>routes.find((cmp => {
@@ -41,8 +48,15 @@ const HeaderManage = ({ parentCallback }:any):JSX.Element => {
     
     return (
         <>
-        <div className="w-full h-fit bg-slate-300 flex items-center justify-start gap-4" >
-            {link}        
+        <div className="w-full h-[60px] bg-white md:h-[87px] flex p-2 md:px-[32px] md:py-[15px] justify-between items-center" >
+            <div>Миний хувийн санхүү</div>
+            <div className="flex">
+                <IconItems />
+                <Profile/>     
+            </div>
+        </div>
+        <div>
+            {link}   
         </div>
         </>
     )

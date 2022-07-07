@@ -5,14 +5,14 @@ import UserManage from "../userManage/userManage.component";
 import Link from 'next/link';
 
 import styles from './buttons.module.scss'
-const { body,profile,abEl } = styles;
+const { body,profile,abEl,SideMainBtns } = styles;
 
 
 export const SideMainBtn = ({icon, name, href, mini}: any) => {
     const router = useRouter()
 
     return(
-        <Link href={href}><div  className={` flex w-full cursor-pointer items-center  justify-center sm:justify-start  gap-0 sm:gap-4  px-2 sm:px-6 py-2 rounded-lg ease-in-out duration-200  hover:bg-cyan-900`}>
+        <Link href={href}><div  className={`${SideMainBtns} ${mini ? "" : "md:w-72"} flex w-full cursor-pointer items-center  justify-center sm:justify-start  gap-0 sm:gap-4  md:h-20  px-2 sm:px-6 py-2 group rounded-lg ease-in-out duration-200 hover:text-white`} >
         {icon}
         <h2 id={body} className={` text-sm md:text-lg font-bold  ${mini ? "hidden" : ""}`}>{name}</h2>
     </div></Link>
@@ -23,7 +23,7 @@ export const SideSecondaryBtn = ({ name, cost, mini}: any) => {
     const router = useRouter()
 
     return(
-        <li id={abEl} style={{top: "42px"}} onClick={()=> router.push(`/users/accounts/${name}`)} className={`${mini ? "absolute w-24" : ""} flex w-auto cursor-pointer items-center justify-between p-2 rounded-lg ease-in-out bg-cyan-800 duration-200 hover:bg-cyan-900 ml-8 sm:ml-6`}><h5>{name}</h5><h5>{cost}</h5></li>
+        <li id={abEl} style={{top: "42px"}} onClick={()=> router.push(`/users/accounts/${name}`)} className={`${mini ? "absolute w-24" : ""} flex w-auto cursor-pointer items-center group justify-between p-2 rounded-lg ease-in-out bg-cyan-800 duration-200 hover:bg-cyan-900 ml-8 sm:ml-6`}><h5>{name}</h5><h5>{cost}</h5></li>
     )
 
 }
@@ -61,7 +61,7 @@ export const UserProfile = ({mini}:any) => {
     const [ userProfile, setUserProfile] = useState(false);
     return(
         <>
-            <div id={profile} onClick={() => setUserProfile(!userProfile)} className="flex gap-0 sm:gap:4 justify-center items-center rounded-lg py-2 ease-in duration-200 cursor-pointer my-2 hover:bg-cyan-900">
+            <div id={profile} onClick={() => setUserProfile(!userProfile)} className={`${SideMainBtns} flex gap-0 sm:gap:4 justify-center items-center rounded-lg py-2 ease-in duration-200 cursor-pointer my-2 hover:bg-cyan-900`}>
                     <FaAutoprefixer className="text-3xl" />
                     <div id={body} className={`flex gap-4 md:gap-6 justify-center items-center relative ${mini ? "hidden" : ""}`}>
                         <div id="textarea" className="flex flex-col">
@@ -75,5 +75,12 @@ export const UserProfile = ({mini}:any) => {
         </>
     )
 
+}
+export const MiniBtn = ({style, item}:any) => {
+    return(
+        <>
+            <span className={`font-medium text-[8px] flex justify-center items-center w-[66px] h-[22px] rounded-[5px] p-1 ${style}`}>{item}</span>
+        </>
+    )
 }
 

@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import HeaderManage from '../../../components/headerManage';
 import Sidebar from '../../../components/sidebar/sidebar.component';
 
 const Accounts = ():JSX.Element => {
@@ -9,7 +10,10 @@ const Accounts = ():JSX.Element => {
         <>
         <div className="flex">
             <Sidebar />
-            <div>acc name : { query }</div>
+            <div className="w-full">
+                <HeaderManage / >
+                    {query}
+            </div>
         </div>
         </>
     )

@@ -5,7 +5,6 @@ import {useAuth} from "../../context/userContext";
 import styles from './login.module.scss';
 import { useDispatch } from "react-redux";
 import { MainBtn } from "../../components/buttons";
-import { setAuthenticated } from "../../stores/user/userSlice";
 import BorderLayout from "../../components/layout/borderlayout";
 import useUser from "../../hooks/user/useUser";
 
@@ -24,11 +23,9 @@ const Register = (): JSX.Element => {
     
     const register = async (event: any) => {
         event.preventDefault();
-        if(event.target.password1.value === event.target.password2.value){
-            userContext.signupUser( event.target.gmail.value, event.target.password1.value);
-            console.log( event.target.gmail.value, event.target.password1.value);
+        userContext.signupUser( event.target.email.value, event.target.password.value);
+        console.log( event.target.email.value, event.target.password.value);
             
-        }
     }
 
     return (

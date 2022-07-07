@@ -1,13 +1,28 @@
 import Link from "next/link"
-export const CardLayout = ({img,name,href,date}:any):JSX.Element => {
+import { FaRegClock,FaHome } from 'react-icons/fa'
+import styles from './cardLayout.module.scss'
+import { MiniBtn } from "../../buttons"
+
+export const CardLayout = ({name,href,icon, color}:any):JSX.Element => {
     return(
         <>
-        <Link href={href}>
-            <div className="border p-2 flex flex-col m-2 w-40 h-40 md:h-52 md:w-52 text-center justify-between items-center cursor-pointer">
-                <div className="w-full h-36 border bg-slate-200">{img}</div>
-                <div className="text flex flex-col items-center justify-center">
-                    <h2 className="text-xl">{name}</h2>
-                    <p>{date}</p>
+        <Link href={`${href}/${name}`}>
+            <div className={`${styles.card} bg-white border p-4 md:p-[20px] flex flex-col m-2 md:w-[240px] relative rounded-[21px] `}>
+                <span className={`absolute w-[38px] h-[38px] rounded-full ${color} top-[-15px] left-0 md:left-[30px] flex justify-center items-center `}>{icon}</span>
+                <h2 className="font-semibold text-[14px] text-[#121127] pb-[20px] pt-[10px]">{name}</h2>
+                <div className="flex gap-2 py-2"><span className="w-[20px]"><FaRegClock className="text-lg " /></span><span className="text-[#5f5e61] text-[12px] ">Гэр ахуй руу 1’000’000₮</span></div>
+                <div className="flex gap-2  py-2"><span className="w-[20px]"><FaHome className="text-lg " /></span><span className="text-[#5f5e61] text-[12px] leading-none ">Байгууллагаас авдаг тогтмол 
+орлого юм</span></div>
+                <div className="border-t pt-[20px]  flex justify-between items-center">
+                    <div>
+                        <span className="text-[8px] font-medium text-[#5f5e61]">Орлого</span>
+                        <h5 className="text-[8px] text-[#00b0d7] font-medium">2'000'000</h5>
+                    </div>
+                    <MiniBtn style={"bg-[#00b0d7] text-white text-[10px] "} item={"2'000'000"} />
+                    <div>
+                        <span className="text-[8px] font-medium text-[#5f5e61]">Зарлага</span>
+                        <h5 className="text-[8px] text-[#00b0d7] font-medium">2'000'000</h5>
+                    </div>
                 </div>
             </div>
         </Link>

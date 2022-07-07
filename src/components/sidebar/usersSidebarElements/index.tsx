@@ -7,17 +7,17 @@ const { body,relEl } = styles;
 
 const be = [
     {
-        icon: <FaWallet className="text-lg md:text-xl" />,
+        icon: <FaWallet className="text-lg md:text-xl text-[#087592] group-hover:text-white" />,
         name: "Тооцоо",
         href: "/users/budget",
     },
     {
-        icon: <FaChartBar className="text-lg md:text-xl" />,
+        icon: <FaChartBar className="text-lg md:text-xl text-[#087592] group-hover:text-white" />,
         name: "График",
         href: "/users/reports",
     },
     {
-        icon: <FaListUl className="text-lg md:text-xl"/>,
+        icon: <FaListUl className="text-lg md:text-xl text-[#087592] group-hover:text-white"/>,
         name: "Ангилал",
         href: "/users/accounts",
     },
@@ -43,7 +43,7 @@ const UsersSidebar = ({mini}:any):JSX.Element => {
     useEffect(() => {
       const x = router.asPath;
       switch (x){
-        case "/home/budget":
+        case "/home/users":
             return setActive("1")
         case "/home/reports":
             return setActive("2")
@@ -61,7 +61,7 @@ const UsersSidebar = ({mini}:any):JSX.Element => {
         <>
         <div id="btns" className="flex flex-col gap-1 justify-center items-center py-3">
                 {be.map( (el,key) => 
-                    <SideMainBtn key={key} icon={el.icon} name={el.name} href={el.href} mini={mini}/>
+                    <SideMainBtn key={key} icon={el.icon} name={el.name} href={el.href} mini={mini} />
                 )}
                 
             </div>

@@ -4,7 +4,7 @@ const UserManage = (): JSX.Element => {
 
     return(
         <>
-            <div className="w-56 py-4 absolute top-20 left-10 h-auto rounded-md flexflex-col justify-center items-center ease-in-out duration-150  bg-white text-slate-800">
+            <div className="w-56 z-20 py-4 absolute top-20 left-10 h-auto rounded-md flexflex-col justify-center items-center ease-in-out duration-150  bg-white text-slate-800">
                 <ul className='py-2'>
                     <li className="flex justify-center items-center gapy-2 text-lg hover:bg-slate-200" ><FaPlus /> new badget</li>
                     <li className="flex justify-center items-center gapy-2 text-lg hover:bg-slate-200" ><FaRegFolder /> new badget</li>

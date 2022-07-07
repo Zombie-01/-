@@ -50,7 +50,8 @@ export const UserStore = ( { children } ) => {
     // signupUser
     const signupUser = async (email, password) => {
         setState({...state, saving: true});
-        const { data: token } = await api.post('auth/login', { email, password });
+        console.log("sigup");
+        const { data: token } = await api.post('auth/signUp', { email, password });
 
         const data = {
             email,
