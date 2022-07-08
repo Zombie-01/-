@@ -29,10 +29,12 @@ const Home: NextPage = (): JSX.Element => {
             илүү их мөнгө хэмнээрэй</p>
           <div id={btns} className='flex gap-4'>
             <MainBtn href={""} name="Заавар" color="bg-[#81D0DF]" textColor="text-white p-3"/>
-            <MainBtn href={"/register"} name="Бүртгүүлэх" textColor="text-black border p-3" />
+            <MainBtn href={"/register"} name="Бүртгүүлэх" color={"border"} textColor="text-black border" />
           </div>
         </div>
-        <div className='flex justify-center items-center w-full h-full '><img className=" max-w-[936] absolute top-[450px]  md:top-96 drop-shadow-xl " src="/assests/home.png" alt="" /></div>
+        <div className='flex justify-center items-center w-full h-full '>
+          <img className=" max-w-[936] absolute top-[450px]  drop-shadow-xl " src="/assests/home.png" alt="" />
+        </div>
       </header>
       <div className={`${styles.container} mt-0 sm:mt-40 md:mt-64` }>
         <main className={styles.main}>

@@ -24,8 +24,9 @@ const Login = (): JSX.Element => {
         event.preventDefault();
         userContext.loginUser( event.target.email.value, event.target.password.value);
         // dispatch(login());
+        router.push("/users/groups")
         if(userContext.state.token ){
-            router.push("/users")
+            router.push("/users/groups")
         } else {
             // setWrongPasswords(true);
         }

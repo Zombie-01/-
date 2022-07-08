@@ -1,5 +1,6 @@
 import { useState,useCallback } from "react";
 import HeaderManage from "../../components/headerManage/headerManage.conponent";
+import { useRouter } from "next/router";
 import {FaFolderPlus,FaBars,FaChevronDown} from "react-icons/fa"
 import Sidebar from "../../components/sidebar";
 import { CardLayout } from "../../components/layout/cardLayout";
@@ -8,7 +9,8 @@ import { DatePicker } from "../../components/datePicker";
 import { MiniBtn } from "../../components/buttons";
 
 const UserBudget = ():JSX.Element=> {
-
+    const router = useRouter()
+    console.log(router.asPath);
     const [ dateBar,setDateBar ] = useState(false)
     const DateBarFunc = () => {
         setDateBar(!dateBar)
@@ -35,9 +37,9 @@ const UserBudget = ():JSX.Element=> {
                             </div>
                         </div>
                         <div className="flex flex-wrap justify-center md:justify-start items-center">
-                            <CardLayout name="Хэрэглээнд" href="/users/budget" icon="none" color="bg-[#61FF33]" />
-                            <CardLayout name="Хэрэглээнд" href="/users/budget" icon="none" color="bg-[#3390FF]" />
-                            <CardLayout name="Хэрэглээнд" href="/users/budget" icon="none" color="bg-[#FF33E3]" />
+                            <CardLayout name="Хэрэглээнд" href={router.asPath} icon="none" color="bg-[#61FF33]" />
+                            <CardLayout name="Хэрэглээнд" href={router.asPath} icon="none" color="bg-[#3390FF]" />
+                            <CardLayout name="Хэрэглээнд" href={router.asPath} icon="none" color="bg-[#FF33E3]" />
                             
                             {/* <button onClick={() => console.log('asd')}>
                                 <div className={`${styles.card} bg-white border p-2 md:p-[32px] flex flex-col m-2 w-40 h-40 md:h-[230px] md:w-[240px] relative rounded-[21px] `}>

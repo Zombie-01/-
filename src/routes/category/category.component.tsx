@@ -13,7 +13,7 @@ const Budget = ({}):JSX.Element => {
         <div className="flex">
         <Sidebar  />
             <div className="w-full">
-                <HeaderManage / >
+                <HeaderManage />
                     {/* {query} */}
             </div>
                 

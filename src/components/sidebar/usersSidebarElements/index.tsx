@@ -3,23 +3,18 @@ import { useRouter } from "next/router";
 import { FaArrowDown,FaWallet,FaChartBar,FaArrowRight,FaUserPlus,FaListUl } from 'react-icons/fa';
 import { SideMainBtn,DialogBtn,SideSecondaryBtn } from "../../buttons";
 import styles from "../sidebar.module.scss"
-const { body,relEl } = styles;
+const { body,relEl,SideMainBtns } = styles;
 
 const be = [
     {
         icon: <FaWallet className="text-lg md:text-xl text-[#087592] group-hover:text-white" />,
-        name: "Тооцоо",
-        href: "/users/budget",
+        name: "Санхүүгийн тооцоо",
+        href: "/users/groups",
     },
     {
         icon: <FaChartBar className="text-lg md:text-xl text-[#087592] group-hover:text-white" />,
         name: "График",
-        href: "/users/reports",
-    },
-    {
-        icon: <FaListUl className="text-lg md:text-xl text-[#087592] group-hover:text-white"/>,
-        name: "Ангилал",
-        href: "/users/accounts",
+        href: "/users/graph",
     },
 ]
 
@@ -45,7 +40,7 @@ const UsersSidebar = ({mini}:any):JSX.Element => {
       switch (x){
         case "/home/users":
             return setActive("1")
-        case "/home/reports":
+        case "/home/graph":
             return setActive("2")
         case "/home/accounts":
             return setActive("3")
@@ -59,21 +54,32 @@ const UsersSidebar = ({mini}:any):JSX.Element => {
 
     return(
         <>
-        <div id="btns" className="flex flex-col gap-1 justify-center items-center py-3">
+        {mini ? "" :<div className={`hidden md:block justify-start ${mini ? "p-2" : "md:px-[24px]"}`}><h4 className="text-[#828282] text-[12px] text-start">Хяналтын хэсэг</h4></div>}
+        <div id="btns" className="flex flex-col gap-1 justify-center items-center">
                 {be.map( (el,key) => 
                     <SideMainBtn key={key} icon={el.icon} name={el.name} href={el.href} mini={mini} />
                 )}
                 
             </div>
-        <div id="collapses" onClick={()=> setBudgetarrow(!budgetarrow)} className="flex w-full cursor-pointer px-2 sm:px-6 items-center gap-2">
-        {budgetarrow ? <FaArrowRight className="text-md w-6" /> : <FaArrowDown className="text-md w-6 " />}<div className="flex w-full justify-between items-center "><h4 id={body} className={`${mini ? "hidden" : ""}`} >Ангиллууд</h4 ><h4 id={body} className={`${mini ? "hidden" : ""}`}>$0.00</h4></div>
-        </div>
-        {budgetarrow ? "" :<ul id={relEl} className={`list-none px-0 sm:px-6 py-1 ${mini ? " relative" : ""}`}>
+        <div id="collapses" onClick={()=> setBudgetarrow(!budgetarrow)} className={`flex w-full cursor-pointer ${mini ? "p-0" : "md:px-6"} items-center gap-2`}>
+        
+            <div className={`${SideMainBtns} ${mini ? "w-full" : "md:w-[298px] px-2"} flex w-full cursor-pointer items-center  justify-center   gap-0   md:h-[56px] py-2 group rounded-lg ease-in-out duration-200 hover:text-white text-lg md:text-xl text-[#121127] mb-4 group-hover:text-white`} >
+                <div className={`flex w-full ${mini ? " px-2" : "md:gap-4"} gap-4 cursor-pointer justify-center sm:justify-start`}>
+                    <FaListUl className=" text-lg md:text-xl text-[#087592] group-hover:text-white"/>
+                    <h2 id={body} className={` text-sm md:text-[16px] font-semibold  ${mini ? "hidden" : ""}`}>Ангиллууд</h2>
+                </div>
+                {mini ? "":budgetarrow ? <FaArrowRight className=" hidden md:block text-md w-6" /> : <FaArrowDown className="hidden md:block text-md w-6 " />}</div ></div>
+        {budgetarrow ? "" :<ul id={relEl} className={`list-none px-0 sm:px-6 py-1 z-40 ${mini ? " relative" : ""}`}>
                 {
                     bemini.map( (el,key) => <SideSecondaryBtn key={key} name={el.name} cost={el.cost} mini={mini}/>)
                 }
             </ul>}
-        <DialogBtn mini={mini} name={"add acount"} icon={<FaUserPlus className="text-xl"  />}/>
+            {mini ? "" :<div className={`hidden md:block justify-start  ${mini ? "p-2" : "md:px-[24px]"}`}><h4 className="text-[#828282] text-[12px] text-start">Хувийн хэсэг</h4></div>}
+            <div id="btns" className="flex flex-col gap-1 justify-center items-center">
+                <SideMainBtn icon={<FaWallet className="text-lg md:text-xl text-[#087592] group-hover:text-white" />} name={"Миний тохиргоо"} href={""} mini={mini} />
+                <SideMainBtn icon={<FaWallet className="text-lg md:text-xl text-[#087592] group-hover:text-white" />} name={"Гарах"} href={""} mini={mini} />
+                
+            </div>
          
         </>
     )

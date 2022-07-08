@@ -12,9 +12,9 @@ export const SideMainBtn = ({icon, name, href, mini}: any) => {
     const router = useRouter()
 
     return(
-        <Link href={href}><div  className={`${SideMainBtns} ${mini ? "" : "md:w-72"} flex w-full cursor-pointer items-center  justify-center sm:justify-start  gap-0 sm:gap-4  md:h-20  px-2 sm:px-6 py-2 group rounded-lg ease-in-out duration-200 hover:text-white`} >
+        <Link href={href}><div  className={`${SideMainBtns} ${mini ? "" : "md:w-[298px]"} flex w-full cursor-pointer items-center  justify-center sm:justify-start  gap-0 sm:gap-4 px-2 md:h-[56px]  ${mini ? "" : "md:px-6"} py-2 group rounded-lg ease-in-out duration-200 hover:text-white`} >
         {icon}
-        <h2 id={body} className={` text-sm md:text-lg font-bold  ${mini ? "hidden" : ""}`}>{name}</h2>
+        <h2 id={body} className={` text-sm md:text-[16px] font-semibold  ${mini ? "hidden" : ""}`}>{name}</h2>
     </div></Link>
     )
 }
@@ -23,7 +23,7 @@ export const SideSecondaryBtn = ({ name, cost, mini}: any) => {
     const router = useRouter()
 
     return(
-        <li id={abEl} style={{top: "42px"}} onClick={()=> router.push(`/users/accounts/${name}`)} className={`${mini ? "absolute w-24" : ""} flex w-auto cursor-pointer items-center group justify-between p-2 rounded-lg ease-in-out bg-cyan-800 duration-200 hover:bg-cyan-900 ml-8 sm:ml-6`}><h5>{name}</h5><h5>{cost}</h5></li>
+        <li id={abEl} style={{top: "42px"}} onClick={()=> router.push(`/users/accounts/${name}`)} className={`${mini ? "absolute w-24" : ""} flex w-auto cursor-pointer items-center group justify-between p-2 rounded-lg ease-in-out duration-200 hover:bg-[#087592] hover:text-white ml-8 sm:ml-6`}><h5>{name}</h5><h5>{cost}</h5></li>
     )
 
 }
@@ -65,7 +65,7 @@ export const UserProfile = ({mini}:any) => {
                     <FaAutoprefixer className="text-3xl" />
                     <div id={body} className={`flex gap-4 md:gap-6 justify-center items-center relative ${mini ? "hidden" : ""}`}>
                         <div id="textarea" className="flex flex-col">
-                            <h2 className=" text-lg md:text-xl font-bold">My badget</h2>
+                            <h2 className=" text-lg md:text-[24px] font-bold">My badget</h2>
                             <p className="text-gray-400">mm6816557@gmail.com</p>
                         </div>
                         <FaArrowDown className="text-xl"/>
